@@ -1,3 +1,5 @@
+//注意所有数据都不符合条件的情况，输出 0 （测试数据点3）
+
 #include <cstdio>
 #include <iostream>
 #include <algorithm>
@@ -41,6 +43,7 @@ int main()
         peo.push_back(tmp);
     }
     sort(peo.begin(), peo.end(), cmp);
-    cout << peo.size() << ' ' << peo[0].name << ' ' << peo[peo.size() - 1].name << endl;
+    if(peo.size() == 0) cout << 0 << endl;
+    else cout << peo.size() << ' ' << peo[0].name << ' ' << peo[peo.size() - 1].name << endl;
     return 0;
 }
