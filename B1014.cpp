@@ -1,3 +1,5 @@
+//注意题目对于“相同”情况的描述
+
 #include <cstdio>
 #include <iostream>
 #include <algorithm>
@@ -14,19 +16,20 @@ int main()
     int lend = d.size();
     int flag = 1;
     for(int i = 0; i < min(lena, lenb); i++){
-        if(a[i] == b[i] && isalpha(a[i]) && flag){
-            if(isupper(a[i])){
-                cout << DAY[int(a[i] - 'A')] << ' ';
-            }
-            else cout << DAY[int(a[i] - 'a')] << ' ';
+        if(a[i] == b[i] && a[i] >= 'A' && a[i] <= 'G' && flag){
+            cout << DAY[int(a[i] - 'A')] << ' ';
             flag = 0;
             continue;
         }
         if(flag == 0 && a[i] == b[i]){
-            if(isupper(a[i])) cout << int(a[i] - 'A') + 10 << ':';
-            else if(isdigit(a[i])) cout << '0' << a[i] << ':';
-            else cout << int(a[i] - 'a') + 10 << ':';
-            break;
+            if(a[i] >= 'A' && a[i] <= 'N') {
+                cout << int(a[i] - 'A') + 10 << ':';
+                break;
+            }
+            else if(isdigit(a[i])) {
+                cout << '0' << a[i] << ':';
+                break;
+            }
         }
     }
     for(int i = 0; i < min(lenc, lend); i++){
