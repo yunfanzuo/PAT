@@ -1,10 +1,12 @@
+//注意精度损失，全开 double
+
 #include <iostream>
 #include <algorithm>
 using namespace std;
 const int maxn = 1005;
 struct yb{
-    int n;
-    int p;
+    double n;
+    double p;
     double xjb;
 } YB[maxn];
 
@@ -23,12 +25,12 @@ int main()
         cin >> YB[i].p;
     }
     for(int i = 0; i < n; i++){
-        YB[i].xjb = (double)YB[i].p / YB[i].n;
+        YB[i].xjb = YB[i].p / YB[i].n;
     }
     sort(YB, YB + n, cmp);
     double ans = 0;
     for(int i = 0; i < n; i++){
-        if(d <= YB[i].n){
+        if(d < YB[i].n){
             ans += YB[i].xjb * d;
             break;
         }
