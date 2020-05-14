@@ -1,4 +1,4 @@
-//符号单独读入，整数int读，小数字符串读，幂次int读
+//符号单独读入，整数int读，小数字符串读，指数int读
 
 #include <iostream>
 #include <cstdio>
@@ -6,20 +6,19 @@ using namespace std;
 
 int main()
 {
-    char sgn1, sgn2;
+    char sgn;
     int zs, mc;
     char xs[10007];
-    sgn1 = getchar();
-    scanf("%d.", &zs);
+    sgn = getchar();  //符号
+    scanf("%d.", &zs);  //整数
     int dex = 0;
     char c;
-    while((c = getchar()) != 'E'){
+    while((c = getchar()) != 'E'){  //小数
         xs[dex++] = c;
     }
-    sgn2 = getchar();
-    scanf("%d", &mc);
-    if(sgn1 == '-') printf("-");
-    if(sgn2 == '-'){
+    scanf("%d", &mc);  //幂次
+    if(sgn == '-') printf("-");
+    if(mc < 0){
         printf("0.");
         for(int i = 0; i < mc - 1; i++){
             printf("0");
