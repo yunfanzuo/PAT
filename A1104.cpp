@@ -18,7 +18,7 @@ int main()
 {
     int n;
     scanf("%d", &n);
-    for(int i = 0; i < n; i++){
+    for(int i = 1; i <= n; i++){
         scanf("%lf", &a[i]);
     }
     double ans = 0.0;
@@ -29,11 +29,8 @@ int main()
     //         }
     //     }
     // }
-    int x = 1, y = n;
-    for(int i = 0; i < n; i++){
-        ans += a[i] * x * y;
-        x++;
-        y--;
+    for(int i = 1; i <= n; i++){
+        ans += a[i] * i * (n - i + 1);
     }
     printf("%.2f\n", ans);
     return 0;
